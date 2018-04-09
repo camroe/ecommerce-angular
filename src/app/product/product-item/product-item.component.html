@@ -1,0 +1,28 @@
+<div class="product-container" *ngFor="let product of products;index as i">
+
+  <!--<div [class]="product.isForSale() ? 'for-sale' : 'not-for-sale'">-->
+  <!--<div [ngClass]="productClasses">-->
+  <!--
+[class]="product.isForSale() ? 'for-sale' : ''"-->
+  <div class="product-item" [class]="product.forSale ?  'for-sale' : 'not-for-sale'">
+
+    <div class="details">
+      <div class="name"> {{product.name}}</div>
+      <div class="quantity">{{product.quantity}}</div>
+      <!-- <div class="price"-->
+      <!-- [class]="forSale ?  'not-for-sale' : 'for-sale'">For Sale</div>-->
+    </div>
+    <div  class="buttons">
+      <!--[disabled]="product.isQuantityZero()">Decrement-->
+      <div class="left-button">
+        <button (click)="product.decQuantity()"
+                *ngIf="!product.isQuantityZero()"> --
+        </button>
+      </div>
+      <div class="right-button">
+        <button (click)="product.incQuantity()">++</button>
+      </div>
+    </div>
+  </div>
+</div>
+
